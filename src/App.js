@@ -1,6 +1,7 @@
 import './App.css';
 import { useEffect} from 'react';
 function App() {
+  debugger;
   const products = [
     { id: 1, name: 'Laptop', stock: 10,
       category: 'electronics', price: 1000 },
@@ -16,7 +17,57 @@ function App() {
       category: 'electronicks', price: 200},
 ];
 
-const categoryProduct = {
+let discountPrice;
+
+const discountedProducts = products.map(product => {
+  switch (product.category) {
+    case 'electronics':
+      discountPrice = 10;
+      break;
+      case 'grocery':
+        discountPrice = 5;
+        break;
+  }
+  const discountedPrice = (product.price * ( 1 - discountPrice / 100)).toFixed(2);
+   
+  return {
+    ...product,
+    discountedPrice
+  };
+});
+
+discountedProducts.forEach(product => {
+  console.log(`${product.name}: Orijinal Fiyat : ${product.price} TL, İndirimli Fiyat : ${product.discountedPrice} TL`);
+
+});
+
+let grocery = 0;
+let electronik = 0;
+
+products.forEach (product => {
+  switch(product.category) {
+    case 'electronicks':
+      electronik++;
+      break;
+      case 'grocery':
+        grocery++
+        break;
+       
+  }
+});
+
+console.log("Elektronik Ürünler: " + electronik);
+console.log("Gıda: " + grocery);
+
+
+const outofstockproducts = products.filter(product => product.stock ===0);
+console.log(" Stokta olmayan ürün sayısı " +  outofstockproducts .length);
+
+const productss = products.filter(product => product.price > 500);
+console.log("Fiyatı 500'den fazla olan ürünler: " , productss);
+
+
+/*const categoryProduct = {
   electronicks: [],
   grocery: [],
   other: [],
@@ -80,7 +131,8 @@ useEffect(() => {
   
       
   }
-  , [products]);
+  , [products]); */
+
 
 
   return (
@@ -88,7 +140,7 @@ useEffect(() => {
       
     </div>
   );
-})}; 
+}; 
 
 
 
