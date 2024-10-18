@@ -16,7 +16,7 @@ function App() {
     { id: 6, name: 'Headphones', stock: 5,
       category: 'electronicks', price: 200},
 ];
-
+// KATEGORİLERE İNDİRİM UYGULAMA
 let discountPrice;
 
 const discountedProducts = products.map(product => {
@@ -40,7 +40,7 @@ discountedProducts.forEach(product => {
   console.log(`${product.name}: Orijinal Fiyat : ${product.price} TL, İndirimli Fiyat : ${product.discountedPrice} TL`);
 
 });
-
+//KATEGORİLERDE TOPLAM ÜRÜN SAYISI
 let grocery = 0;
 let electronik = 0;
 
@@ -59,14 +59,15 @@ products.forEach (product => {
 console.log("Elektronik Ürünler: " + electronik);
 console.log("Gıda: " + grocery);
 
-
-const outofstockproducts = products.filter(product => product.stock ===0);
+//STOKTA OLMAYAN TOPLAM ÜRÜN SAYISI
+const outofstockproducts = products.filter(product => product.stock === 0);
 console.log(" Stokta olmayan ürün sayısı " +  outofstockproducts .length);
 
+//FİYATI 500'DEN FAZLA OLAN ÜRÜNLER
 const productss = products.filter(product => product.price > 500);
 console.log("Fiyatı 500'den fazla olan ürünler: " , productss);
 
-
+// STOK KONTROL
 /*const categoryProduct = {
   electronicks: [],
   grocery: [],
