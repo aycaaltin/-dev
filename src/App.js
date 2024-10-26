@@ -1,6 +1,10 @@
 import './App.css';
 import { useEffect} from 'react';
+import Pratik from './pratik';
+import String from './string';
+
 function App() {
+  /*
   debugger;
   const products = [
     { id: 1, name: 'Laptop', stock: 10,
@@ -22,7 +26,7 @@ let discountPrice;
 const discountedProducts = products.map(product => {
   switch (product.category) {
     case 'electronics':
-      discountPrice = 10;
+    discountPrice = 10;
       break;
       case 'grocery':
         discountPrice = 5;
@@ -138,6 +142,8 @@ useEffect(() => {
 
   return (
     <div className="App">
+      <Pratik/>
+      <String/>
       
     </div>
   );
