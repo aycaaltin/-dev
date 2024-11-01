@@ -2,6 +2,7 @@ import './App.css';
 import { useEffect} from 'react';
 import Pratik from './pratik';
 import String from './string';
+import Ödevler from './ödevler';
 
 function App() {
   /*
@@ -144,6 +145,7 @@ useEffect(() => {
     <div className="App">
       <Pratik/>
       <String/>
+      <Ödevler/>
       
     </div>
   );
